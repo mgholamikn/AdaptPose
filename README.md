@@ -6,3 +6,6 @@ In progress...
 <p align="center">
 <img  src="Figures/Tiser.jpg" width="400">
 <p/>
+
+## Google Colab
+If you do not have a suitable environment to run this project then you could give Google Colab a try. It allows you to run the project in the cloud, free of charge. You may try our Colab demo using the notebook we have prepared.
