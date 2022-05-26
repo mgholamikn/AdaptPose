@@ -1,5 +1,4 @@
 # [CVPR 2022] AdaptPose: Cross-Dataset Adaptation for 3D Human Pose Estimation by Learnable Motion Generation
-[image](https://user-images.githubusercontent.com/55782887/170594455-ee7e7134-7419-4502-b1ff-b0422c5e6437.png)
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/adaptpose-cross-dataset-adaptation-for-3d/weakly-supervised-3d-human-pose-estimation-on)](https://paperswithcode.com/sota/weakly-supervised-3d-human-pose-estimation-on?p=adaptpose-cross-dataset-adaptation-for-3d)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1d_bcHtBm-rR0mTVJ7484WVJ5Gmk5NkbB#scrollTo=Xtvy95RHLbrd)
