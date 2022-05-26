@@ -1,3 +1,3 @@
 # AdaptPose!
 
-![plot](Demo/cvpr2022_Tiser.jpg)
+<img src:"Demo/cvpr2022_Tiser.jpg"/>
