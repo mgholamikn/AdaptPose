@@ -3,8 +3,10 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/adaptpose-cross-dataset-adaptation-for-3d/weakly-supervised-3d-human-pose-estimation-on)](https://paperswithcode.com/sota/weakly-supervised-3d-human-pose-estimation-on?p=adaptpose-cross-dataset-adaptation-for-3d)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1d_bcHtBm-rR0mTVJ7484WVJ5Gmk5NkbB#scrollTo=Xtvy95RHLbrd)
 
-In progress...
-<p align="center">
+
+This implementation is based on [VideoPsoe3D](https://github.com/facebookresearch/VideoPose3D) and [PoseAug](https://github.com/jfzhang95/PoseAug). Experiemnts on 4 datatsets: Human3.6M, 3DHP, 3DPW, and Ski are provided. Adaptpose is aimed to improve accuracy of 3D pose estimators in cross-dataset scenarios. 
+ 
+<p align="center">.
 <img  src="Figures/Tiser.jpg" width="400">
 <p/>
 
