@@ -27,7 +27,10 @@ pip install -r requirements.txt
 ```
 
 ## Dataset setup
-
+Download the required data for running the experiments:
+```
+source scripts/prepare_data.sh
+```
 ## Training and Evaluation
 
 
