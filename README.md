@@ -40,21 +40,28 @@ source scripts/pretrained_models.sh
 
 ### 1. Cross-dataset Evaluation of Pretrained Model on 3DHP dataset
 
+Source:Human3.6M/Target:3DHP
+
 ```
 python3  run_evaluate.py --posenet_name 'videopose' --keypoints gt --evaluate  'checkpoint/adaptpose/videopose/gt/3dhp/ckpt_best_dhp_p1.pth.tar' --dataset_target 3dhp --keypoints_target 'gt' --pad 13  --pretrain_path  'checkpoint/pretrain_baseline/videopose/gt/3dhp/ckpt_best.pth.tar'
 ```
-### 2. Cross-dataset Traiining of Pretrained Model on 3DHP dataset
+### 2. Cross-dataset Training of Pretrained Model on 3DHP dataset
+
+Source:Human3.6M/Target:3DHP
 ```
 python3 run_adaptpose.py --note poseaug --posenet_name 'videopose' --lr_p 1e-4 --checkpoint './checkpoint/adaptpose' --keypoints gt --keypoints_target gt --dataset_target '3dhp'  --pretrain_path './checkpoint/pretrain_baseline/videopose/gt/3dhp/ckpt_best.pth.tar'  --pad 13 
 ```
 
 ### 3. Cross-dataset Evaluation of Pretrained Model on 3DPW dataset
 
+Source:Human3.6M/Target:3DPW
 ```
 python3  run_evaluate.py --posenet_name 'videopose' --keypoints gt --evaluate  'checkpoint/adaptpose/videopose/gt/3dpw/ckpt_best_dhp_p1.pth.tar' --dataset_target 3dpw --keypoints_target 'gt' --pad 13  --pretrain_path  'checkpoint/pretrain_baseline/videopose/gt/3dpw/ckpt_best.pth.tar'
 ```
 
-### 3. Cross-dataset Training of Pretrained Model on 3DPW dataset
+### 4. Cross-dataset Training of Pretrained Model on 3DPW dataset
+
+Source:Human3.6M/Target:3DPW
 
 ```
 ppython3 run_adaptpose.py --note poseaug --posenet_name 'videopose' --lr_p 1e-4 --checkpoint './checkpoint/adaptpose' --keypoints gt --keypoints_target gt --dataset_target '3dpw'  --pretrain_path './checkpoint/pretrain_baseline/videopose/gt/3dhp/ckpt_best.pth.tar'  --pad 13 
