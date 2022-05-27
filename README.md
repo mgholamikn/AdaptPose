@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ```
 
 ## Dataset setup
-Download the required data for running the experiments:
+Due to licenece issues we can not share Huamn3.6m dataset. Please refer to [here](https://github.com/facebookresearch/VideoPose3D/blob/main/DATASETS.md) for instructions on downloading and processing Human3.6M. Here we provide processed data of 3DHP, 3PW, and SKi dataset:
 ```
 source scripts/prepare_data.sh
 ```
