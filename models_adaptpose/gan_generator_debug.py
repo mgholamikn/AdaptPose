@@ -340,20 +340,20 @@ class BLGenerator(nn.Module):
         :return: nx16x3
         '''
         # convert 3d pose to root relative
-        inputs_3d=inputs_3d[:,0]
+        inputs_3d=inputs_3d[:,0] #[1024, 1, 27, 16, 3] -> [1024, 27, 16, 3]
 
         root_origin = inputs_3d[:, :, :1, :] * 1.0
         x = inputs_3d - inputs_3d[:, :, :1, :]  # x: root relative
         # pre-processing
-        x = x.view(x.size(0),x.size(1),  -1)
+        x = x.view(x.size(0),x.size(1),  -1) # [1024, 27, 48]
 
         # caculate blr
-        bones_length_x = get_bone_lengthbypose3d(x.view(x.size(0),x.size(1),-1, 3)).squeeze(-1) 
+        bones_length_x = get_bone_lengthbypose3d(x.view(x.size(0),x.size(1),-1, 3)).squeeze(-1) # [1024, 27, 15]
 
-        middle_frame=int((x.shape[1]-1)/2)
+        middle_frame=int((x.shape[1]-1)/2) # 13
         pad=x.shape[1]
-        x=x[:,middle_frame]
-        bones_length_x=bones_length_x[:,middle_frame]
+        x=x[:,middle_frame] # [1024, 48]
+        bones_length_x=bones_length_x[:,middle_frame] # [1024, 15]
        
         
         noise = torch.randn(x.shape[0], self.noise_channle, device=x.device)
@@ -363,14 +363,14 @@ class BLGenerator(nn.Module):
         for i in range(self.num_stage):
             blr = self.linear_stages_BL[i](blr)
 
-        blr = self.w2_BL(blr)
+        blr = self.w2_BL(blr) # [1024, 9]
        
         # create a mask to filter out 8th blr to avoid ambiguity (tall person at far may have same 2D with short person at close point).
         tmp_mask = torch.from_numpy(np.array([[1, 1, 1, 1, 0, 1, 1, 1, 1]]).astype('float32')).to(blr.device)
         blr = blr * tmp_mask
         # operate BL modification on original data
         blr = nn.Tanh()(blr) * self.blr_tanhlimit  # allow +-20% length change.
-        blr=blr.unsqueeze(1).repeat(1,pad,1)
+        blr=blr.unsqueeze(1).repeat(1,pad,1) # [1024, 27, 9]
         bones_length = get_bone_lengthbypose3d(augx)
         augx_bl = blaugment9to15(augx, bones_length, blr.unsqueeze(3))
         return augx_bl, blr  # return blr for debug
