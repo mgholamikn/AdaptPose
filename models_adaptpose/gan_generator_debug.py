@@ -372,7 +372,7 @@ class BLGenerator(nn.Module):
         blr = nn.Tanh()(blr) * self.blr_tanhlimit  # allow +-20% length change.
         blr=blr.unsqueeze(1).repeat(1,pad,1) # [1024, 27, 9]
         bones_length = get_bone_lengthbypose3d(augx)
-        augx_bl = blaugment9to15(augx, bones_length, blr.unsqueeze(3))
+        augx_bl = blaugment9to15(augx, bones_length, blr.unsqueeze(3)) # [1024, 27, 16, 3]
         return augx_bl, blr  # return blr for debug
 
 
