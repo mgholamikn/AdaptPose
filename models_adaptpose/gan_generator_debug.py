@@ -265,16 +265,16 @@ class RTGenerator(nn.Module):
         r = self.batch_norm_R(r)
         r = self.relu(r)
         for i in range(self.num_stage):
-            r = self.linear_stages_R[i](r)
+            r = self.linear_stages_R[i](r) # [1024, 256]
 
         # r = self.w2_R(r)
         r_mean=r[:,:3]
         r_std=r[:,3:6]*r[:,3:6]
         r_axis = torch.normal(mean=r_mean,std=r_std)
         r_axis = r_axis/torch.linalg.norm(r_axis,dim=-1,keepdim=True)
-        r_axis = r_axis*r[:,6:7]
+        r_axis = r_axis*r[:,6:7] # [1024, 3]
 
-        rM=torch3d.axis_angle_to_matrix(r_axis) #axis_angle
+        rM=torch3d.axis_angle_to_matrix(r_axis) #axis_angle [1024, 3, 3]
         # rM = torch3d.euler_angles_to_matrix(r_axis,["Z","Y","X"])  #euler_angle
         # rM= torch3d.quaternion_to_matrix(r_axis) #quaternion
         
@@ -287,18 +287,18 @@ class RTGenerator(nn.Module):
         for i in range(self.num_stage):
             t = self.linear_stages_T[i](t)
 
-        t = self.w2_T(t)
+        t = self.w2_T(t) 
 
         t[:, 2] = t[:, 2].clone() * t[:, 2].clone()
-        t = t.view(x.size(0), 1, 3)  # Nx1x3 translation t
+        t = t.view(x.size(0), 1, 3)  # Nx1x3 translation t [1024, 1, 3]
 
         # operat RT on original data - augx
         augx = augx - augx[:, :, :1, :]  # x: root relative
         augx = augx.permute(0, 1, 3,2).contiguous()
         rM=rM.unsqueeze(1).repeat(1,pad,1,1)
         augx_r = torch.matmul(rM, augx)
-        augx_r = augx_r.permute(0,1,3, 2).contiguous()
-        t=t.unsqueeze(1).repeat(1,pad,1,1)
+        augx_r = augx_r.permute(0,1,3, 2).contiguous() # [1024, 27, 16, 3]
+        t=t.unsqueeze(1).repeat(1,pad,1,1) # [1024, 27, 1, 3]
         augx_rt = augx_r + t
 
         return augx_rt, (r, t)  # return r t for debug
