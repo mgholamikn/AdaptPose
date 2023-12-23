@@ -69,6 +69,9 @@ Source:Human3.6M/Target:3DPW
 ```
 python3 run_adaptpose.py --note poseaug --posenet_name 'videopose' --lr_p 1e-4 --checkpoint './checkpoint/adaptpose' --keypoints gt --keypoints_target gt --dataset_target '3dpw'  --pretrain_path './checkpoint/pretrain_baseline/videopose/gt/3dhp/ckpt_best.pth.tar'  --pad 13 
 ```
+```
+python3 run_adaptpose.py --note poseaug --posenet_name 'videopose' --lr_p 1e-4 --checkpoint './checkpoint/adaptpose' --keypoints gt --keypoints_target gt --dataset_target '3dpw'  --pretrain_path 'checkpoint/adaptpose/videopose/gt/3dhp/ckpt_best_dhp_p1.pth.tar'  --pad 13 
+```
 
 
 
