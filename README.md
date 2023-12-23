@@ -45,6 +45,9 @@ Source:Human3.6M/Target:3DHP
 ```
 python3  run_evaluate.py --posenet_name 'videopose' --keypoints gt --evaluate  'checkpoint/adaptpose/videopose/gt/3dhp/ckpt_best_dhp_p1.pth.tar' --dataset_target 3dhp --keypoints_target 'gt' --pad 13  --pretrain_path  'checkpoint/pretrain_baseline/videopose/gt/3dhp/ckpt_best.pth.tar'
 ```
+```
+python3  run_evaluate.py --posenet_name 'videopose' --keypoints gt --evaluate  'checkpoint/pretrain_baseline/videopose/gt/3dhp/ckpt_best.pth.tar' --dataset_target 3dhp --keypoints_target 'gt' --pad 13  --pretrain_path  'checkpoint/pretrain_baseline/videopose/gt/3dhp/ckpt_best.pth.tar'
+```
 ### 2. Cross-dataset Training of Pretrained Model on 3DHP dataset
 
 Source:Human3.6M/Target:3DHP
