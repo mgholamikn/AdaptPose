@@ -4,10 +4,10 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1d_bcHtBm-rR0mTVJ7484WVJ5Gmk5NkbB#scrollTo=Xtvy95RHLbrd)
 
 
-This implementation is based on [VideoPsoe3D](https://github.com/facebookresearch/VideoPose3D) and [PoseAug](https://github.com/jfzhang95/PoseAug). Experiemnts on 4 datatsets: Human3.6M, 3DHP, 3DPW, and Ski are provided. Adaptpose is aimed to improve accuracy of 3D pose estimators in cross-dataset scenarios. 
+This implementation is based on [VideoPsoe3D](https://github.com/facebookresearch/VideoPose3D) and [PoseAug](https://github.com/jfzhang95/PoseAug). Experiments on 4 datasets: Human3.6M, 3DHP, 3DPW, and Ski are provided. Adaptpose is aimed to improve the accuracy of 3D pose estimators in cross-dataset scenarios. 
  
 <p align="center">.
-<img  src="Figures/Tiser.jpg" width="400">
+<img  src="Figures/Tiser.jpg" width="600">
 <p/>
 
 ## Google Colab
@@ -27,12 +27,12 @@ pip install -r requirements.txt
 ```
 
 ## Dataset setup
-Due to licenece issues we can not share Huamn3.6m dataset. Please refer to [here](https://github.com/facebookresearch/VideoPose3D/blob/main/DATASETS.md) for instructions on downloading and processing Human3.6M. After downloaing you need to have two files for Human3.6M: ```data_3d_h36m.npz``` ```data_2d_h36m_gt.npz```. Here we provide processed data of 3DHP, 3PW, and SKi dataset:
+Due to license issues, we can not share the Huamn3.6m dataset. Please refer to [here](https://github.com/facebookresearch/VideoPose3D/blob/main/DATASETS.md) for instructions on downloading and processing Human3.6M. After downloaing you need to have two files for Human3.6M: ```data_3d_h36m.npz``` ```data_2d_h36m_gt.npz```. Here we provide processed data of 3DHP, 3PW, and SKi dataset:
 ```
 source scripts/prepare_data.sh
 ```
 ## Experiments:
-Downloaed the pretraind models:
+Download the pretraind models:
 
 ```
 source scripts/pretrained_models.sh
