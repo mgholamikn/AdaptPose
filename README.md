@@ -67,5 +67,17 @@ Source:Human3.6M/Target:3DPW
 ppython3 run_adaptpose.py --note poseaug --posenet_name 'videopose' --lr_p 1e-4 --checkpoint './checkpoint/adaptpose' --keypoints gt --keypoints_target gt --dataset_target '3dpw'  --pretrain_path './checkpoint/pretrain_baseline/videopose/gt/3dhp/ckpt_best.pth.tar'  --pad 13 
 ```
 
+Citations:
+```
+@InProceedings{Gholami_2022_CVPR,
+    author    = {Gholami, Mohsen and Wandt, Bastian and Rhodin, Helge and Ward, Rabab and Wang, Z. Jane},
+    title     = {AdaptPose: Cross-Dataset Adaptation for 3D Human Pose Estimation by Learnable Motion Generation},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {13075-13085}
+}
+```
+
 
 
